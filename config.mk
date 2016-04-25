@@ -19,8 +19,8 @@ LIBS = -L/usr/lib -lc -L${X11LIB} -lm -lrt -lX11 -lutil -lXft \
        `pkg-config --libs freetype2`
 
 # flags
-CPPFLAGS = -DVERSION=\"${VERSION}\" -D_XOPEN_SOURCE=600 -march native
-CFLAGS += -g -std=c99 -pedantic -Wall -Wvariadic-macros -Os ${INCS} ${CPPFLAGS}
+CPPFLAGS = -DVERSION=\"${VERSION}\" -D_XOPEN_SOURCE=600
+CFLAGS += -g -std=c99 -pedantic -Wall -Wvariadic-macros -march=native -Os ${INCS} ${CPPFLAGS}
 LDFLAGS += -g ${LIBS}
 
 # compiler and linker

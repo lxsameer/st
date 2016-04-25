@@ -71,24 +71,24 @@ static unsigned int tabspaces = 8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
+	"#272822",
+	"#F92672",
+	"#A6E22E",
+	"#FD971F",
+	"#66D9EF",
+	"#AE81FF",
+	"#958060",
 	"gray90",
 
 	/* 8 bright colors */
 	"gray50",
-	"red",
+	"#EA444E",
 	"green",
-	"yellow",
+	"#F6E7B4",
 	"#5c5cff",
 	"magenta",
 	"cyan",
-	"white",
+	"#F8F8F2",
 
 	[255] = 0,
 
@@ -137,14 +137,17 @@ static unsigned int defaultunderline = 7;
  */
 static MouseShortcut mshortcuts[] = {
 	/* button               mask            string */
-	{ Button4,              XK_NO_MOD,      "\031" },
-	{ Button5,              XK_NO_MOD,      "\005" },
+	{ Button4,              ShiftMask,	"\031" },
+	{ Button5,		ShiftMask,	"\005" },
 };
 
 static MouseKey mkeys[] = {
 	/* button               mask            function        argument */
-	{ Button4,              ShiftMask,      kscrollup,      {.i =  1} },
-	{ Button5,              ShiftMask,      kscrolldown,    {.i =  1} },
+	/* { Button4,              ShiftMask,      kscrollup,      {.i =  1} }, */
+	/* { Button5,              ShiftMask,      kscrolldown,    {.i =  1} }, */
+  	{ Button4,              XK_NO_MOD,	kscrollup,	{.i =  1} },
+	{ Button5,		XK_NO_MOD,	kscrolldown,	{.i =  1} },
+
 };
 
 /* Internal keyboard shortcuts. */
@@ -164,8 +167,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY|ShiftMask,     XK_C,           clipcopy,       {.i =  0} },
 	{ MODKEY|ShiftMask,     XK_V,           clippaste,      {.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -5} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -5} },
 };
 
 /*
